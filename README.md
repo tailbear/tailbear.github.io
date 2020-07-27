@@ -16,7 +16,7 @@
 
 例子：例如“在集合中查找某物”。不管是雇员记录数据库还是名-值对哈希表，或者某类条目的数组，我们都会发现自己想要从集合中找到某一特定条目。一旦出现这种情况，我通常会把实现手段封装到更抽象的方法或类中。
 
-###### 自我总结：通过访谈名人的方式，介绍了代码整洁的意义。
+### 自我总结：通过访谈名人的方式，介绍了代码整洁的意义。
 
 ## 第二章 有意义的命名
 
@@ -36,7 +36,37 @@
 
 用异常代替返回错误码。
 
+如错误码形式：
 
+```java
+if (deletePage(page) == E_OK) {
+if (registry.deleteReference(page.name) == E_OK) {
+if (configKeys.deleteKey(page.name.makeKey()) == E_OK){
+logger.log("page deleted");
+} else {
+logger.log("configKey not deleted");
+}
+} else {
+logger.log("deleteReference from registry failed");
+}
+} else {
+logger.log("delete failed");
+return E_ERROR;
+}
+```
+
+异常形式：
+
+```java
+try {
+deletePage(page);
+registry.deleteReference(page.name);
+configKeys.deleteKey(page.name.makeKey());
+}
+catch (Exception e) {
+logger.log(e.getMessage());
+}
+```
 
 ### 结构化编程
 
