@@ -6,7 +6,7 @@
 
 一个简单的部署流水线-图
 
-![](https://github.com/tailbear/tailbearblob/master/pic/ContinuousDelivery/简单流水线.jpg)
+![](./pic/ContinuousDelivery/简单流水线.jpg)
 
 ### 软件构成部分：可执行的代码、配置信息、运行环境和数据（P10）
 
